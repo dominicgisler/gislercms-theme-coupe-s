@@ -1,7 +1,13 @@
-<header class="border rounded bg-light text-center p-4 display-4">
-    <div class="row">
-        <a href="{{ base_url() }}" class="col-10 col-sm-8 col-lg-6 m-auto">
-            <img src="{{ base_url() }}/assets/img/logo.png" alt="Logo" class="mw-100">
-        </a>
+<div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+        {% set theme_path = '../themes/gcms-coupe-s/' %}
+        {% for img in glob(theme_path ~ 'assets/img/header/*.jpg') %}
+            <div class="carousel-item {% if loop.first %}active{% endif %} overflow-hidden" style="background-image: url('{{ base_url() }}/{{ img|replace({(theme_path): ''}) }}');">
+            </div>
+        {% endfor %}
     </div>
-</header>
+    <a class="logo" href="{{ base_url() }}">
+        <img src="{{ base_url() }}/assets/img/logo.png" alt="Logo" class="w-100">
+    </a>
+    {% include 'navigation.twig' %}
+</div>

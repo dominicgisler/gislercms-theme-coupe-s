@@ -1,3 +1,5 @@
+$primary: #58789f;
+
 @import '../../vendor/twbs/bootstrap/scss/bootstrap';
 
 $fa-font-path: "../webfonts" !default;
@@ -6,7 +8,7 @@ $fa-font-path: "../webfonts" !default;
 @import '../../vendor/fortawesome/font-awesome/scss/brands';
 
 body {
-  background: url('../img/bg.jpeg') no-repeat center center fixed;
+  background: url('../img/background.png') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -22,6 +24,60 @@ body {
 
 .gallery-item {
   height: 150px;
+}
+
+main * {
+  max-width: 100%;
+}
+
+#header-carousel {
+  .carousel-item {
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 151px;
+
+    @media (max-width: 575px) {
+      height: 116px;
+    }
+  }
+
+  a.logo {
+    width: 129px;
+    height: 129px;
+    display: block;
+    margin: -140px auto 11px 11px;
+    max-width: 90%;
+
+    z-index: 1;
+    position: relative;
+
+    @media (max-width: map_get($grid-breakpoints, md)) {
+      margin: -140px auto 11px auto;
+    }
+
+    @media (max-width: map_get($grid-breakpoints, sm)) {
+      margin-top: -103px;
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  nav {
+    position: absolute;
+    right: 0;
+    top: 111px;
+    z-index: 1;
+    opacity: 0.9;
+    @media (max-width: map_get($grid-breakpoints, md)) {
+      position: initial;
+      width: 100%;
+      float: none !important;
+    }
+  }
 }
 
 #cookie-info {
